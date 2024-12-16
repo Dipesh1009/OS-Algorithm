@@ -32,7 +32,7 @@ void bestFit(struct Hole memory[], int h, struct Process p[], int n) {
         minIndex = -1;
         for (int j = 0; j < h; j++) {
             d = memory[j].remain - p[i].size;
-            if (d > 0 && d < min && memory[j].remain > p[i].size) {
+            if (d >= 0 && d < min && memory[j].remain > p[i].size) {
                 min = d; minIndex = j;
             }
         }
@@ -50,7 +50,7 @@ void worstFit (struct Hole memory[], int h, struct Process p[], int n) {
         max = 0; 
         maxIndex = -1;
         for (int j = 0; j < h; j++) {
-            if (memory[j].remain > max && memory[j].remain > p[i].size) {
+            if (memory[j].remain > max && memory[j].remain >= p[i].size) {
                 max = memory[j].remain;
                 maxIndex = j;
             }
