@@ -79,6 +79,7 @@ void nextFit(struct Hole memory[], int h, struct Process p[], int n){
                 if (memory[j].remain >= p[i].size) {
                     memory[j].remain -= p[i].size;
                     p[i].hole = memory[j].name;
+                    next = j;
                     break;
                 }
             }
